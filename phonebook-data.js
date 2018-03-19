@@ -34,3 +34,5 @@ phonebook = [
         }
     }
 ]
+
+module.exports.pb = phonebook.toString();
