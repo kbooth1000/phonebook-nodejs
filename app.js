@@ -39,8 +39,8 @@ What would you like to do? (1-6) `, (answer) => {
         });
     }
     if (answer === '4') {
-        console.log('##1');
-        listAllEntries(function (message) {
+        console.log('##4');
+        listAllEntries('phonebook-data.js', function (message) {
             console.log('Message: ' + message);
         });
     }
