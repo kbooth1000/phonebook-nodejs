@@ -19,19 +19,8 @@ var addEntry = function (filename, entry, callback) {
         if (err) {
             throw err;
             callback('The file, \'' + filename + '\' is not found.');
-        } else {
-            // dataArrayTxt = dataArrayTxt.replace(/(\r\n\t|\n|\r\t)/gm,'');
-            // dataArrayTxt = dataArrayTxt.replace(/ /g,'')
-            // var parsedText = JSON.parse(dataArrayTxt);
-            // console.log('parsed: ', parsedText);
-            
+        } else {            
             dataToArray = dataArrayTxt.split('},');
-            // for(key in dataToArray){
-            //     console.log('first_name: ', dataToArray[key].first_name);
-                
-            // }
-            // console.log('dataToArray: ', dataToArray[1]['2']);
-            
             var parsedEntry = entry.replace(/ /g,'').split(',');
             var objectifiedEntry = '\'first_name\': \''+parsedEntry[0]+'\', \'last_name\': \''+parsedEntry[1]+'\', \'phone\': \''+parsedEntry[2]+'\'';
             
