@@ -1,6 +1,7 @@
 const http = require('http');
 const phonebookArray = require('./phonebook-data');
 const listAllEntries = require('./listAllEntries');
+const put = require('./put');
 
 var contacts = phonebookArray.pb;
 
@@ -85,14 +86,7 @@ var server = http.createServer(function (request, response) {
         var contact = findContact(id);
         response.on('end', JSON.stringify(content) );
     }
-    var putContact = function(request, response) {
-        var id = getRequestSuffix(request);
-        var contact = findContact(id);
-        readBody(request, function(body) {
-            Object.assign(contact, newParams);
-            response.end('Contact updated.');
-        });
-    };
+    var putContact = put(request, response);
 
     var notFound = function(request,response) {
         response.statusCode - 404;
